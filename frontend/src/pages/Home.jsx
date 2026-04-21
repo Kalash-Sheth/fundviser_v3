@@ -851,19 +851,20 @@ const TheFirm = () => {
             </div>
 
             {/* RIGHT — 3D orb in dark portal circle */}
-            <div className="tf-found-img flex items-center justify-center relative" style={{ minHeight:480 }}>
+            <div className="tf-found-img flex items-center justify-center relative overflow-hidden"
+              style={{ minHeight:'min(480px, 80vw)' }}>
               {/* Outer ring gold */}
-              <div style={{ position:'absolute', width:432, height:432, borderRadius:'50%',
+              <div style={{ position:'absolute', width:'min(432px, 88vw)', height:'min(432px, 88vw)', borderRadius:'50%',
                 border:`1px solid rgba(${B.gRgb},0.22)`,
                 animation:'firmFloat 13s ease-in-out infinite', pointerEvents:'none' }} />
               {/* Outer ring purple */}
-              <div style={{ position:'absolute', width:472, height:472, borderRadius:'50%',
+              <div style={{ position:'absolute', width:'min(472px, 96vw)', height:'min(472px, 96vw)', borderRadius:'50%',
                 border:`1px solid rgba(${B.pRgb},0.09)`,
                 animation:'firmFloat 13s ease-in-out infinite', pointerEvents:'none' }} />
 
               {/* Dark portal */}
               <div style={{
-                position:'relative', width:392, height:392, borderRadius:'50%',
+                position:'relative', width:'min(392px, 80vw)', height:'min(392px, 80vw)', borderRadius:'50%',
                 background:`radial-gradient(circle at 38% 36%, #200040 0%, #0d0020 55%, ${B.dark} 100%)`,
                 boxShadow:`0 40px 100px rgba(${B.pRgb},0.28), 0 0 0 1px rgba(${B.gRgb},0.16), inset 0 1px 0 rgba(255,255,255,0.06)`,
                 overflow:'hidden',
@@ -877,27 +878,27 @@ const TheFirm = () => {
                 </div>
               </div>
 
-              {/* Floating card: BSE — bottom-left */}
+              {/* Floating card: Excellence — bottom-left */}
               <div className="tf-found-badge" style={{
                 position:'absolute', bottom:'4%', left:'3%',
-                padding:'12px 18px', borderRadius:16,
+                padding:'10px 14px', borderRadius:14,
                 background:'rgba(255,255,255,0.95)', backdropFilter:'blur(20px)',
                 border:`1px solid rgba(${B.pRgb},0.11)`,
                 boxShadow:`0 12px 36px rgba(${B.pRgb},0.12)`,
               }}>
-                <p style={{ color:B.purple, fontSize:20, fontWeight:900,
+                <p style={{ color:B.purple, fontSize:18, fontWeight:900,
                   fontFamily:"'Playfair Display', serif" }}>Excellence</p>
               </div>
 
-              {/* Floating card: Est. 1993 — top-right */}
+              {/* Floating card: Trust Engine — top-right */}
               <div className="tf-found-badge" style={{
-                position:'absolute', top:'6%', right:'-2%',
-                padding:'12px 18px', borderRadius:16,
+                position:'absolute', top:'6%', right:'3%',
+                padding:'10px 14px', borderRadius:14,
                 background:'rgba(255,255,255,0.95)', backdropFilter:'blur(20px)',
                 border:`1px solid rgba(${B.gRgb},0.18)`,
                 boxShadow:`0 12px 36px rgba(${B.gRgb},0.10)`,
               }}>
-                <p style={{ color:B.gold, fontSize:22, fontWeight:900,
+                <p style={{ color:B.gold, fontSize:18, fontWeight:900,
                   fontFamily:"'Playfair Display', serif" }}>Trust Engine</p>
               </div>
             </div>

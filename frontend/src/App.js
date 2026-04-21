@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "@/App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import LogoAnimation from "./components/LogoAnimation";
 import Home from "./pages/Home";
 import TheFirm from "./pages/TheFirm";
 import WhatWeDo from "./pages/WhatWeDo";
@@ -23,8 +24,21 @@ const ContactPage = () => (
 );
 
 function App() {
+  const [showLogoAnimation, setShowLogoAnimation] = useState(true);
+
+  useEffect(() => {
+    const hasSeen = sessionStorage.getItem('hasSeenLogoAnimation');
+    if (hasSeen) setShowLogoAnimation(false);
+  }, []);
+
+  const handleAnimationComplete = () => {
+    setShowLogoAnimation(false);
+    sessionStorage.setItem('hasSeenLogoAnimation', 'true');
+  };
+
   return (
     <div className="App">
+      {showLogoAnimation && <LogoAnimation onComplete={handleAnimationComplete} />}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

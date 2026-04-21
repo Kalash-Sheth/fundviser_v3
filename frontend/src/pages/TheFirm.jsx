@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import LogoAnimation from '../components/LogoAnimation';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import StockWidget from '../components/StockWidget';
@@ -45,7 +44,7 @@ const principles = [
 ];
 
 const galleryImages = [
-  { src: "Mumbai.png", label: "Mumbai HQ" },
+  { src: "Mumbai_HQ3.png", label: "Mumbai HQ" },
   { src: "z_12.jpeg", label: "Network" },
   { src: "about_us2.png", label: "Capital Strategy" },
   { src: "z_15.png", label: "Legacy & Trust" },
@@ -147,34 +146,12 @@ const Cube3D = () => {
 
 /* ─── Main Page ─────────────────────────────────────────────── */
 const Home = () => {
-  const [showLogoAnimation, setShowLogoAnimation] = useState(true);
-  const [contentVisible, setContentVisible] = useState(false);
   const [activeGallery, setActiveGallery] = useState(null);
-
-  useEffect(() => {
-    const hasSeenAnimation = sessionStorage.getItem('hasSeenLogoAnimation');
-
-    if (hasSeenAnimation) {
-      setShowLogoAnimation(false);
-      setContentVisible(true);
-    } else {
-      const timer = setTimeout(() => {
-        setContentVisible(true);
-        sessionStorage.setItem('hasSeenLogoAnimation', 'true');
-      }, 2500);
-
-      return () => clearTimeout(timer);
-    }
-  }, []);
 
   return (
     <div className="min-h-screen overflow-x-hidden">
-      {showLogoAnimation && (
-        <LogoAnimation onComplete={() => setShowLogoAnimation(false)} />
-      )}
-
       <Navbar />
-      <div className={`transition-opacity duration-500 ${contentVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div>
         <HeroSection />
         <StockWidget />
 
