@@ -74,7 +74,7 @@ const slides = [
     ctaLink: '/our-subsidiaries',
     ...BRAND,
     mainImage: '/subs_3.png',
-    mainImage2: '/subs_2.png',
+    mainImage2: '/subs_4.png',
     logos: [
       { src: '/starlight-logo-new.png', name: 'Starlight Box Theatres' },
       { src: '/silver_sage_logo.png',   name: 'Silver Sage Trading' },
@@ -629,10 +629,10 @@ const HeroSection = () => {
                       </div>
                     </div>
 
-                    {/* CARD F — Image card (hidden on subsidiaries slide) */}
-                    {!slide.logos && <div style={{ width: 240, flexShrink: 0, marginTop: '-60px', ...cardFade(480) }}>
+                    {/* CARD F — Image card */}
+                    <div style={{ width: slide.logos ? 200 : 240, flexShrink: 0, marginTop: slide.logos ? '-90px' : '-60px', ...cardFade(480) }}>
                       <div style={{ ...card3D, borderRadius: 16, overflow: 'hidden', height: '100%' }}>
-                        <div style={{ position: 'relative', height: '100%', minHeight: 245 }}>
+                        <div style={{ position: 'relative', height: '100%', minHeight: slide.logos ? 200 : 245 }}>
                           {slides.map((s, i) => (
                             <img key={i} src={s.mainImage2} alt={s.tag}
                               style={{
@@ -665,7 +665,7 @@ const HeroSection = () => {
                           </div> */}
                         </div>
                       </div>
-                    </div>}
+                    </div>
 
                   </div>{/* end ROW 2 */}
 
